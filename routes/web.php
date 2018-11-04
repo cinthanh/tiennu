@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware => web', 'prefix' => '/'], function() {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('home', 'Manage\HomeController@index')->name('m.home');
 });
