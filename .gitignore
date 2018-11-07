@@ -5,6 +5,7 @@
 /storage/*.key
 /vendor
 /.idea
+/.phpintel
 /.vscode
 /.vagrant
 Homestead.json
