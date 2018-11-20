@@ -17,6 +17,7 @@ class CreatePatientsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->unsignedInteger('weight');
+            $table->unsignedInteger('age');
             $table->unsignedInteger('disease_type_id');
             $table->string('phone')->unique();
             $table->string('address');

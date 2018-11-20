@@ -17,6 +17,7 @@ class CreateMedicinesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('medicine_type_id');
             $table->string('name');
+            $table->string('name_code');
             $table->integer('qty_total');
             $table->timestamps();
             $table->unsignedTinyInteger('disable')->default('0');

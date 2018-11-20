@@ -30,6 +30,7 @@ $factory->define(\App\Patient::class, function (Faker $faker) {
     return [
         'name'          => $faker->name,
         'weight'        => $faker->numberBetween(10,150),
+        'age'           => $faker->numberBetween(10,99),
         'phone'         => $faker->phoneNumber,
         'address'       => $faker->address,
         'disease_type_id' => \App\DiseaseTypes::all()->random()->id,
@@ -40,6 +41,7 @@ $factory->define(\App\Medicine::class, function (Faker $faker) {
     return [
         'medicine_type_id' => \App\MedicineType::all()->random()->id,
         'name'             => $faker->name,
+        'name_code'             => $faker->randomElement(['SSH', 'CNA', 'FFC', 'KKH', 'LOL']),
         'qty_total'        => $faker->numberBetween(350,500)
     ];
 });

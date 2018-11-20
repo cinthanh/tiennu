@@ -30,6 +30,7 @@
 
     <!-- Custom Theme Style -->
     <link href="../backend/build/css/custom.min.css" rel="stylesheet">
+    @yield('myStyle')
 </head>
 
 <body class="nav-md">
@@ -364,6 +365,7 @@
 <script src="../backend/vendors/moment/min/moment.min.js"></script>
 <script src="../backend/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
+@yield('myScript')
 <!-- Custom Theme Scripts -->
 <script src="../backend/build/js/custom.min.js"></script>
 <script>
@@ -373,5 +375,6 @@
         navHome.find('.child_menu').css('display','block');
     });
 </script>
+@yield('script_after')
 </body>
 </html>
