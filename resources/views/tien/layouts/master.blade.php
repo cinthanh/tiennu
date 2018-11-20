@@ -368,9 +368,9 @@
 <script src="../backend/build/js/custom.min.js"></script>
 <script>
     $(function() {
-
-        $('li.nav-home').addClass('active');
-        $('li.nav-home .child_menu').css('display','block');
+        let navHome = $('li.nav-home');
+        navHome.addClass('active');
+        navHome.find('.child_menu').css('display','block');
     });
 </script>
 </body>
