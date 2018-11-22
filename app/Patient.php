@@ -10,20 +10,6 @@ class Patient extends Model
 
     public static function infoPatients()
     {
-//        return DB::table('patients')
-//            ->join('disease_types','patients.disease_type_id','=','disease_types.id')
-//            ->join('patient_medicine','patients.id','=','patient_medicine.patient_id')
-//            ->join('medicines','medicines.id','=','patient_medicine.medicine_id')
-//            ->selectRaw(DB::raw("\n
-//                        patients.id AS patient_id, patients.name AS patient_name,\n
-//                        disease_types.name AS loai_benh, disease_types.id AS loai_benh_id\n
-//                        , patients.weight, patients.age, patients.phone
-//                        /*, GROUP_CONCAT(DISTINCT medicines.name_code SEPARATOR ', ') AS code_thuoc
-//	                    , SUM(patient_medicine.qty) AS qty*/"))
-//            ->groupBy('patients.id')
-//            ->get()
-//        ;
-
         return DB::select("
           SELECT
             patients.id AS patient_id, patients.name AS patient_name, disease_types.name AS loai_benh

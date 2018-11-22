@@ -61,6 +61,13 @@
     let resizeWidth = function(stt, width) {
         $('div.main-table thead tr th:nth-child('+stt+')').css({'width':width+'%'});
     };
+    let getCheckbox = function (name) {
+        let fav = [];
+        $.each($("input[name='"+name+"[]']:checked"), function(){
+            fav.push($(this).val());
+        });
+        return fav;
+    };
     resizeWidth(4,20);
     resizeWidth(3,15);
 
@@ -85,29 +92,10 @@
         let $btnEdit = $('#btn-edit');
         let $btnRemove = $('#btn-remove');
 
+        // Event Listener for button
         $btnEdit.on('click', function (e) {
-            //e.preventDefault();
-            // e.stopPropagation();
-            console.log(123);
-            // let $g =$("input[name='get_checkbox[]']").val();
-            // console.log($g);
-
-            // let fav = [];
-            // $.each($("input[name='get_checkbox[]']:checked"), function(){
-            //     fav.push($(this).val());
-            // });
-            // console.log(fav);
-
-            let getCheckbox = function (name) {
-                let fav = [];
-                $.each($("input[name='"+name+"[]']:checked"), function(){
-                    fav.push($(this).val());
-                });
-                return fav;
-            };
             console.log(getCheckbox('get_checkbox'));
-        })
-
+        });
     });
 </script>
 @stop
