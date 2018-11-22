@@ -42,12 +42,72 @@
 @stop
 
 @section('script_after')
-    <script>
-        // iCheck Custom
-        $('input.flat').iCheck({
-            checkboxClass: 'icheckbox_flat-green',
-            radioClass: 'iradio_flat-green'
-        });
-        // /iCheck
-    </script>
+<script>
+    // iCheck Custom
+    $('input.flat').iCheck({
+        checkboxClass: 'icheckbox_flat-green',
+        radioClass: 'iradio_flat-green'
+    });
+    // /iCheck
+
+    // ===resize iCheck===
+    //select iCheck
+    let $iCheck = $('div.main-table thead tr th:nth-child(1)');
+    $iCheck.css({'width':'20px'});
+    $iCheck.on('click', function(e) {
+        e.propagationStopped();
+    });
+    // resize width dataTable
+    let resizeWidth = function(stt, width) {
+        $('div.main-table thead tr th:nth-child('+stt+')').css({'width':width+'%'});
+    };
+    resizeWidth(4,20);
+    resizeWidth(3,15);
+
+    // Handle Form request
+    $(function () {
+        let $mainIdTable = $('#datatable-checkbox_wrapper');
+        let $headButton = $mainIdTable.find('.row').first();
+        let $resizeGird = $headButton.find('.col-sm-6');
+        let $elementBtn =
+            "<div class='col-sm-6'>"
+            + "<button type='button' id='btn-edit' class='btn btn-warning'><i class='fa fa-edit'></i> Edit</button>"
+            + "<button type='button' id='btn-add' class='btn btn-success'><i class='fa fa-plus'></i> ADD</button>"
+            + "<button type='button' id='btn-remove' class='btn btn-danger'><i class='fa fa-remove'></i> " +
+            "Delete</button>"
+            +
+            "</div>";
+        $($elementBtn).insertAfter($resizeGird.first());
+        $resizeGird.attr('class','col-sm-2');
+
+        //process button
+        let $btnAdd = $('#btn-add');
+        let $btnEdit = $('#btn-edit');
+        let $btnRemove = $('#btn-remove');
+
+        $btnEdit.on('click', function (e) {
+            //e.preventDefault();
+            // e.stopPropagation();
+            console.log(123);
+            // let $g =$("input[name='get_checkbox[]']").val();
+            // console.log($g);
+
+            // let fav = [];
+            // $.each($("input[name='get_checkbox[]']:checked"), function(){
+            //     fav.push($(this).val());
+            // });
+            // console.log(fav);
+
+            let getCheckbox = function (name) {
+                let fav = [];
+                $.each($("input[name='"+name+"[]']:checked"), function(){
+                    fav.push($(this).val());
+                });
+                return fav;
+            };
+            console.log(getCheckbox('get_checkbox'));
+        })
+
+    });
+</script>
 @stop
